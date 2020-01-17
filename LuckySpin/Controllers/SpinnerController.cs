@@ -15,13 +15,15 @@ namespace LuckySpin.Controllers
             int c = random.Next(1, 10);
 
             // Load up the ViewBag for use by the Spinner View "Index.cshtml"
-            ViewBag.ImgDisplay = (a == luck || b == luck || c == luck)?"block":"none";
-            ViewBag.A = a;
-            ViewBag.B = b;
-            ViewBag.C = c;
-            ViewBag.luck = luck;
+            LuckySpin.Models.Spin spin = new LuckySpin.Models.Spin();
 
-            return View();
+            spin.ImgDisplay = (a == luck || b == luck || c == luck) ? "block" : "none";
+            spin.A = a;
+            spin.B = b;
+            spin.C = c;
+            spin.luck = luck;
+
+            return View(spin);
         }
     }
 }
